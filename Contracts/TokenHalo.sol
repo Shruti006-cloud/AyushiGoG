@@ -39,27 +39,8 @@ State variables
         return (reputationScore, totalClaimed, claimableRewards, haloLevel);
     }
     
-    // Admin functions
-    function fundRewardPool() external payable {
-        require(msg.value > 0, "Must send ETH to fund pool");
-        rewardPool += msg.value;
-        emit RewardPoolFunded(msg.sender, msg.value);
-    }
-    
-    function authorizeRewarder(address rewarder, bool status) external onlyOwner {
-        authorizedRewarders[rewarder] = status;
-        emit RewarderAuthorized(rewarder, status);
-    }
-    
-    function getContractBalance() external view returns (uint256) {
-        return address(this).balance;
-    }
-    
-    receive() external payable {
-        rewardPool += msg.value;
-        emit RewardPoolFunded(msg.sender, msg.value);
-    }
-}
+    End
+// 
 // 
 End
 // 
